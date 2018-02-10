@@ -150,7 +150,7 @@ function update_graph()
 	classes = {};
 	for (course in new_classes)
 	{
-		insert_class(course, new_classes[0]);
+		insert_class(course, new_classes[course][0]);
 	}
 }
 
@@ -226,11 +226,13 @@ function insert_class(class_id, class_year)
 		!(query in courses_dict[class_num[0]]))
 	{
 		alert("Invalid course number");
+		console.log("invalid course number");
 		return;
 	}
 	else if (query in classes)
 	{
 		alert("Class already added");
+		console.log("class already added");
 		return;
 	}
 
