@@ -118,11 +118,20 @@ function add_class()
 		alert("Invalid course number");
 		return;
 	}
+	else if (query in classes)
+	{
+		alert("Class already added");
+		return;
+	}
 
 	var course_details = courses_dict[class_num[0]][query],
 		text_content = "<div class=\"class\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span>C</span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
 		new_elem = $(text_content);
 
 	$("#semester" + class_year + " > div").append(new_elem);
+
+	classes[query] = new_elem;
+
+	redraw_class_boxes($("#semester" + class_year));
 
 }

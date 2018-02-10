@@ -1,13 +1,14 @@
 var node_counter = 0;
 var edges = {};
 var class_to_id = {};
+var classes = {};
 
 function init_canvas()
 {
 	edges = {};
 	class_to_id = {};
 	node_counter = 0;
-	$("#course_canvas").removeAttr().html();
+	$("#course_canvas").removeAttr().html().removeData();
 	var canvas = document.getElementById("course_canvas");
 	paper.setup(canvas);
 }
