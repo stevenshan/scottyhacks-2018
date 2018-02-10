@@ -1,15 +1,10 @@
 function get_json(filename)
 {
-var jqxhr = $.get("data/" + filename, function() {
-				alert( "success" );
-			})
-			.done(function() {
-			alert( "second success" );
-			})
-			.fail(function() {
-			alert( "error" );
-			})
-			.always(function() {
-			alert( "finished" );
-			});
+	const request = async () => {
+	    const response = await fetch("data/" + filename);
+	    const json = await response.json();
+	    console.log(json);
+	}
+
+	request();
 }
