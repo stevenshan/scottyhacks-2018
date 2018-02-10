@@ -4,7 +4,7 @@ $(function(){
 							 "settings": "settings_window"};
 
 	/* set default container */
-	$("#header_option_1").prop("checked", true); // select first container
+	$("#header_option_2").prop("checked", true); // select first container
 
 	/* event for header menu change */
 	$("#header input[name='header_button']").change(function(){
@@ -22,7 +22,9 @@ $(function(){
 		$(".container").not("#" + new_window_id).css("display", "none");
 	});
 
-	redraw_class_boxes($("#semester1"));
+	/* trigger change event listener to update container */
+	$("#header input[name='header_button']").change();
+
 });
 
 /* make sure class boxes fit into semester row (aka theres not
