@@ -4,6 +4,7 @@
 {
 	border-top: 3px solid #f7cdcd;
 	font-size: 0px;
+	position: relative;
 }
 
 .semester
@@ -22,7 +23,7 @@
 .class
 {
 	background: #FEF2F4;
-	max-width: 150px;
+	width: 150px;
 	height: 70px;
 	display: inline-block;
 	overflow: hidden;
@@ -64,4 +65,13 @@
 	text-overflow: ellipsis;
 	width: 100%;
 	display: block;
+}
+
+/* Styling for canvas that shows graph edges */
+#course_canvas
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 }
