@@ -1,8 +1,8 @@
 
 var request1 = new XMLHttpRequest();
 var request2 = new XMLHttpRequest();
-request1.open("GET", "/Users/hannahsun/projects/scottyhacks-2018/data/classes/fall-2017.json", false);
-request2.open("GET", "/Users/hannahsun/projects/scottyhacks-2018/data/classes/spring-2018.json", false);
+request1.open("GET", "../data/classes/fall-2017.json", false);
+request2.open("GET", "../data/classes/spring-2018.json", false);
 request1.send(null);
 request2.send(null);
 
@@ -18,18 +18,10 @@ request2.onreadystatechange = function() {
 		console.log(spring);
 	}
 }
+
 var classes = [];
 
-for (var i = 0, i < fall[courses].length; i++) {
-	classes.push(fall[courses][i]);
+/*for (var i = 0, i < fall[courses]length; i++) {
+	classes.push(fall.courses[i]);
 }
-
-for (var i = 0, i < spring[courses].length; i++) {
-	classes.push(spring[courses][i]);
-}
-
-
-
-function fetch(){
-
-}
+*/
