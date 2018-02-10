@@ -145,7 +145,13 @@ function update_graph()
 		}
 	}
 
-
+	/* re-add classes that were added */
+	var new_classes = classes;
+	classes = {};
+	for (class in new_classes)
+	{
+		insert_class(class, new_classes[0]);
+	}
 }
 
 function view_bar_prev()
@@ -234,7 +240,7 @@ function insert_class(class_id, class_year)
 
 	$("#semester" + class_year + " > div").append(new_elem);
 
-	classes[query] = new_elem;
+	classes[query] = [class_year, new_elem];
 
 	redraw_class_boxes($("#semester" + class_year));
 }
