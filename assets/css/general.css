@@ -345,6 +345,7 @@ select
 #add_class_menu
 {
 	width: 360px;
+	padding-left: 10px;
 }
 
 #add_class_menu *
