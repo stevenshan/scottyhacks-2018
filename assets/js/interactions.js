@@ -119,5 +119,10 @@ function add_class()
 		return;
 	}
 
-	console.log("its all good");
+	var class_details = courses_dict[class_num[0]][query],
+		text_content = "<div class=\"class\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span>C</span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
+		new_elem = $(text_content);
+
+	$("#semester" + class_year).append(new_elem);
+
 }

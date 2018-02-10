@@ -1,14 +1,16 @@
-var project = null;
 var node_counter = 0;
+var edges = {};
+var class_to_id = {};
 
 function init_canvas()
 {
+	edges = {};
+	class_to_id = {};
+	node_counter = 0;
 	$("#course_canvas").removeAttr().html();
 	var canvas = document.getElementById("course_canvas");
 	paper.setup(canvas);
 }
-
-var edges = {};
 
 /* return coordinates of center of element */
 function get_elem_center(elem)
@@ -24,6 +26,7 @@ function get_elem_id(elem)
 {
 	if (elem.data("id") === undefined)
 	{
+		class_to_id[$(elem.find(".class_id").get(0)).html()] = node_counter;
 		elem.data("id", node_counter);
 		node_counter++;
 		return node_counter - 1;
@@ -90,7 +93,7 @@ function update_graph()
 				{
 					temp += semester_names[i];
 				}
-				obj.append("<div class=\"semester\"><div><h1>" +
+				obj.append("<div class=\"semester\" id=\"semester" + i + "\"><div><h1>" +
 						   temp + 
 						   "</h1></div></div>");
 			}
@@ -118,7 +121,7 @@ function update_graph()
 				{
 					temp += semester_names[i];
 				}
-				obj.append("<div class=\"semester\"><div><h1>" +
+				obj.append("<div class=\"semester\" id=\"semester" + i + "\"><div><h1>" +
 						   temp + 
 						   "</h1></div></div>");
 			}
@@ -134,7 +137,7 @@ function update_graph()
 			{
 				temp += semester_names[starting_semester];
 			}
-			obj.append("<div class=\"semester\"><div><h1>" +
+			obj.append("<div class=\"semester\" id=\"semester" + starting_semester + "\"><div><h1>" +
 					   temp + 
 					   "</h1></div></div>");
 			break;
