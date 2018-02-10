@@ -102,13 +102,11 @@ function add_class()
 		class_num = [0, 0];
 
 	insert_class(class_id, class_year);
-
-	update_graph();
 }
 
 function class_click_action(elem)
 {
-	if (delete_mode)
+	if ($("#delete_toggle").prop("checked"))
 	{
 		delete classes[$(elem).attr("id").slice(1)];	
 		update_graph();

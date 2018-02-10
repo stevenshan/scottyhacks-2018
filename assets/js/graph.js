@@ -94,8 +94,6 @@ function connect_courses(elem1, elem2)
 
 function update_graph()
 {
-	id_to_dom = {};
-
 	/* clear semesters */
 	$("#semesters .semester").remove();
 
@@ -177,6 +175,7 @@ function update_graph()
 	init_canvas();
 
 	redraw_edges();
+
 }
 
 function view_bar_prev()
@@ -271,11 +270,9 @@ function insert_class(class_id, class_year)
 	{
 		new_elem = null;
 	}
-	else
-	{
-		redraw_edges();
-		draw_prereqs(query, course_details, new_elem, class_year);
-	}
+
+	redraw_edges();
+	draw_prereqs(query, course_details, new_elem, class_year);
 
 	classes[query] = [class_year, new_elem, courses_dict[class_num[0]][query], query];
 	redraw_class_boxes($("#semester" + class_year));
