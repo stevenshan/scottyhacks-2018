@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Styling -->
 		<link href="assets/css/general.css" type="text/css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+		<!-- Scripts -->
 		<script src="assets/js/general.js" type="text/javascript"></script>
 	</head>
 	<body>
-		Hello World
+		<div id="header">
+            <ul>
+                <li>
+                    <input type="radio" name="header_button" id="hbutton1">
+                    <label for="hbutton1">Option 1</label>
+                </li>
+                <li>
+                     <input type="radio" name="header_button" id="hbutton2">
+                     <label for="hbutton2">Option 2</label>
+                </li>
+            </ul>
+		</div>
+        <div id="container">
+    		<div id="taskbar">
+                <ul>
+                    <li>
+                        <input type="checkbox" name="taskbar_toggle">
+                        <label for="taskbar_toggle" class="taskbar_button">X</label>
+                    </li>
+                    <li>
+                        T 2
+                    </li>
+                </ul>
+    		</div>
+            <div id="inner_container">
+                inner contnet
+            </div>
+        </div>
 	</body>
 </html>

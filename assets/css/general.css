@@ -1,4 +1,106 @@
 body
 {
 	margin: 0px;
+	font-family: 'Lato', sans-serif;
+}
+
+
+/*
+ * Top Header
+*/
+#header
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 70px;
+	background: #d61543;
+	color: #ffffff;
+}
+
+#header > ul
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#header > ul > li
+{
+	display: inline-block;
+	text-align: center;
+}
+
+#header > ul input
+{
+	visibility: hidden;
+	display: none;
+}
+
+#header > ul label
+{
+	cursor: pointer;
+	line-height: 70px;
+	height: 70px;
+	display: block;
+	padding: 0px 15px;
+}
+
+#header > ul input:checked + label
+{
+	background: #ef1c4e;
+}
+
+
+/*
+ * Main container: everything below header
+*/
+#container
+{
+	position: absolute;
+	top: 70px; /* add room for header above it */
+	bottom: 0px;
+	width: 100%;
+	height: auto;
+}
+
+/*
+ * Taskbar for tools on left side
+*/
+#taskbar
+{
+	position: absolute;
+	left: 0px;
+	width: 60px;
+	background: blue;
+	height: 100%;
+}
+
+#taskbar > ul
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#taskbar > ul > li
+{
+	display: block;
+}
+
+#taskbar > ul input
+{
+	visibility: hidden;
+	display: none;
+}
+
+#taskbar > ul label
+{
+	
+}
+
+#inner_container
+{
+	background: green;
 }
