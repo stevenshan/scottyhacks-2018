@@ -1,27 +1,79 @@
+function get_json(filename, callback, callback_data, save_location)
+{
+	const request = async () => {
+	    flag = false;
+            var json;
+	    try
+	    {
+		const response = await fetch("data/" + filename);
+	        json = await response.json();
+	    }
+	    catch (err)
+	    {
+		flag = true;
+	        console.log("could not read " + filename);
+	    }
 
-var request1 = new XMLHttpRequest();
-var request2 = new XMLHttpRequest();
-request1.open("GET", "../data/classes/fall-2017.json", false);
-request2.open("GET", "../data/classes/spring-2018.json", false);
-request1.send(null);
-request2.send(null);
+	    if (!flag)
+	    {
+		save_location.push(json);
+	    }
+	    callback(callback_data);
+	}
 
-request1.onreadystatechange = function() {
-	if (request1.readyState === 4 && request1.status === 200 ) {
-		var fall = JSON.parse(request1.responseText);
-		console.log(fall);
+	request();
+}
+
+function load_json_callback(callback)
+{
+	json_load_count += 1;
+	if (json_load_count == json_load_total)
+	{
+		for (i = 0; i < course_json.length; i++)
+		{
+			for (course in course_json[i]["courses"])
+			{
+				course_json[i]["courses"][course]["semester"] = course_json[i]["semester"];
+				var key = course.split("-");
+				var dept = key[0];
+				if (!(dept in courses_dict))
+				{
+					courses_dict[dept] = {};
+				}
+				courses_dict[dept][course] = course_json[i]["courses"][course];
+			}
+		}
+		callback();
+	}	
+}
+
+var json_load_count = 0,
+    json_load_total = 0;
+function load_json_files(callback)
+{
+	json_load_count = 0;
+	json_load_total = 0;
+
+	// load all json files
+
+	// course files
+	for (i = 0; i < course_files.length; i++)
+	{
+		json_load_total += 1;
+		get_json(course_files[i], load_json_callback, callback, course_json);	
+	}
+
+	// major files
+	for (i = 0; i < major_files.length; i++)
+	{
+		json_load_total += 1;
+		get_json(major_files[i], load_json_callback, callback, major_json);	
+	}
+
+	// minor files
+	for (i = 0; i < minor_files.length; i++)
+	{
+		json_load_total += 1;
+		get_json(minor_files[i], load_json_callback, callback, minor_json);	
 	}
 }
-request2.onreadystatechange = function() {
-	if (request2.readyState === 4 && request2.status === 200 ) {
-		var spring = JSON.parse(request2.responseText);
-		console.log(spring);
-	}
-}
-
-var classes = [];
-
-/*for (var i = 0, i < fall[courses]length; i++) {
-	classes.push(fall.courses[i]);
-}
-*/

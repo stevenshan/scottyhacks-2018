@@ -1,9 +1,19 @@
 /* code to be executed on load */
-$(function(){
-	var container_mapping = {"preferences": "preferences_window",
-							 "display": "display_window",
-							 "settings": "settings_window"};
 
+$(function(){
+	/* load json files and call setup_page when done*/
+	$("#loading_screen").css("display", "block");
+	load_json_files(setup_page);
+});
+
+function setup_page()
+{
+	/* hide loading screen */
+	$("#loading_screen").css("display", "none");
+
+	var container_mapping = {"preferences": "preferences_window",
+				 "display": "display_window",
+				 "settings": "settings_window"};
 	/* set default container */
 	$("#header_option_1").prop("checked", true); // select first container
 
@@ -26,7 +36,9 @@ $(function(){
 	/* trigger change event listener to update container */
 	$("#header input[name='header_button']:checked").change();
 
-});
+	setup_graph();
+
+}
 
 /* make sure class boxes fit into semester row (aka theres not
  * so many classes that it ends up overflowing into another row */
