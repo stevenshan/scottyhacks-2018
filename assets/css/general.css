@@ -242,6 +242,8 @@ a
 #display_window .inner_container
 {
 	margin-left: 60px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 #view_bar

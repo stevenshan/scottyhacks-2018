@@ -1,6 +1,9 @@
+var project = null;
+
 window.onload = function() {
-	// Get a reference to the canvas object
-	
+	/* initialize canvas */
+	var canvas = document.getElementById("course_canvas");
+	paper.setup(canvas);
 
 	connect_courses($("#class1"), $("#class2"));
 	connect_courses($("#class1"), $("#class2"));
@@ -30,27 +33,23 @@ function connect_courses(elem1, elem2)
 		console.log("duplicate edge");
 		return;
 	}
+	else if (elem1 == elem2)
+	{
+		console.log("self loop");
+		return;
+	}
 
 	var pos1 = get_elem_center(elem1), /* coordinates of elem1 */
 		pos2 = get_elem_center(elem2); /* coordinates of elem1 */
 
-	var canvas = document.getElementById('course_canvas');
-	// Create an empty project and a view for the canvas:
-	paper.setup(canvas);
-	// Create a Paper.js Path to draw a line into it:
+
 	var path = new paper.Path();
-	// Give the stroke a color
-	path.strokeColor = 'black';
-	var start = new paper.Point(0, 0);
-	// Move to start and draw a line from there
+	path.strokeColor = "black";
+	path.strokeWidth = "5";
+	var start = new paper.Point(pos1.x, pos1.y);
 	path.moveTo(start);
-	// Note that the plus operator on Point objects does not work
-	// in JavaScript. Instead, we need to call the add() function:
-	path.lineTo(start.add([pos1.x, pos1.y]));
-	// Draw the view now:
-	paper.view.draw();
-
-
+	path.lineTo(start.add([pos2.x - pos1.x, 
+						   pos2.y - pos1.y]));
 
 	/* add edge to list of edges */
 	edges[hash] = true;
