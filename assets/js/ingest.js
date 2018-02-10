@@ -1,10 +1,15 @@
 function get_json(filename)
 {
-	fetch("data/" + filename, {mode: 'no-cors'})
-	.then(function(result) {
-		return result.text();
-	})
-	.then(function(text){
-		console.log(text);
-	});
+var jqxhr = $.get("data/" + filename, function() {
+				alert( "success" );
+			})
+			.done(function() {
+			alert( "second success" );
+			})
+			.fail(function() {
+			alert( "error" );
+			})
+			.always(function() {
+			alert( "finished" );
+			});
 }
