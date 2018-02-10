@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<!-- Styling -->
-		<link href="assets/css/general.css" type="text/css" rel="stylesheet">
+        <link href="assets/css/general.css" type="text/css" rel="stylesheet">
+        <link href="assets/css/graph.css" type="text/css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
 
 		<!-- Scripts -->
@@ -23,36 +24,82 @@
             </ul>
 		</div>
 
-        <div class="container" id="display_window">
-            <input type="checkbox" name="taskbar_toggle" id="taskbar_toggle">
-    		<div id="taskbar">
-                <div id="taskbar_inner">
-                    <section>
-                        <div class="taskbar_button no_hover">
-                            <label for="taskbar_toggle">
-                                <span id="taskbar_toggle_button"></span>
-                            </label>
-                        </div>
-                    </section>
-                    <section>
-                        <div class="taskbar_button">
-                            <span>Y</span>
-                            <label>Option 1</label>
-                        </div>
-                        <div class="taskbar_button">
-                            <span>Z</span>
-                            <label>Option 2</label>
-                        </div>
-                    </section>
-                </div>
-    		</div>
-            <div id="inner_container">
-                inner contnet
-            </div>
-        </div>
+        <!-- area of window below header -->
+        <div id="wrapper">
+            <div class="container" id="display_window">
 
-        <div class="container" id="settings_window">
-            settings
+                <!-- expandable taskbar for tools -->
+                <input type="checkbox" name="taskbar_toggle" id="taskbar_toggle">
+        		<div id="taskbar">
+                    <div id="taskbar_inner">
+                        <section>
+                            <div class="taskbar_button no_hover">
+                                <label for="taskbar_toggle">
+                                    <span id="taskbar_toggle_button"></span>
+                                </label>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="taskbar_button">
+                                <span>Y</span>
+                                <label>Option 1</label>
+                            </div>
+                            <div class="taskbar_button">
+                                <span>Z</span>
+                                <label>Option 2</label>
+                            </div>
+                        </section>
+                    </div>
+        		</div>
+
+                <!-- area of window below header and right of toolbar -->
+                <div class="inner_container">
+
+                    <!-- view bar for selecting 4 year, 1 year, semester -->
+                    <div id="view_bar">
+                        <ul>
+                            <li>
+                                <input type="radio" name="view_button" id="view_option_1" value="view_4_year" checked>
+                                <label for="view_option_1">4 Year</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="view_button" id="view_option_2" value="view_1_year">
+                                <label for="view_option_2">1 Year</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="view_button" id="view_option_3" value="view_semester">
+                                <label for="view_option_3">Semester</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- actual graph display -->
+                    <div id="semesters">
+
+                        <div class="semester">
+                            <div>
+
+                                <div class="class">
+                                    <div class="class_1">
+                                        <span class="class_num">15-122</span>
+                                        <span class="class_name">Principles of Imperative Computation</span>
+                                    </div>
+                                    <div class="class_2">
+                                        <span class="class_units">9</span>
+                                        <span class="class_prereq" true></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" id="settings_window">
+                settings
+            </div>
         </div>
 	</body>
 </html>

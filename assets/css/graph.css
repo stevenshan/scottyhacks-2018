@@ -1,0 +1,53 @@
+/* stylesheet for graph view of courses */
+
+#semesters
+{
+	border-top: 3px solid #f7cdcd;
+}
+
+.semester
+{
+	padding: 25px;
+	border-bottom: 1px solid #f7cdcd;
+}
+
+.semester > div
+{
+	height: 70px;
+	text-align: center;
+	font-size: 13px;
+}
+
+/* formatting for each class block */
+.class
+{
+	background: #FEF2F4;
+	max-width: 150px;
+	height: 70px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.class > .class_1,
+.class > .class_2
+{
+	display: block;
+	white-space:nowrap;
+}
+
+.class .class_num
+{
+	font-weight: bold;
+}
+
+.class .class_num:after
+{
+	content: " : ";
+	display: inline-block;
+}
+
+.class .class_name:after
+{
+	content: "";
+	display: block;
+}
