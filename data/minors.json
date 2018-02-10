@@ -1,0 +1,53 @@
+{"minors":[
+	{
+		"name":"Robotics",
+		"department":"Robotics",
+		"school":"SCS",
+		"units": 52,
+		"prereqs":[
+			{
+				"category":"calculus",
+				"courses":[0, "21-259"],
+				"units":9
+			},
+
+			{
+				"category":"basic math",
+				"courses":[1, "21-240", "21-241", "21-242", "21-260", "18-202", "24-311"],
+				"units":10
+			},
+
+			{
+				"category":"programming in C",
+				"courses":[1, "15-122", "16-311", "24-280"],
+				"units":10
+			}
+		], 
+		"reqs":[
+			{
+				"category":"intro",
+				"courses":[0, "16-311"],
+				"units":12
+			},
+
+			{
+				"category":"controls",
+				"courses":[1, "06-464", "24-451", "18-370", "16-299"],
+				"units":9
+			},
+
+			{
+				"category":"kinematics",
+				"courses":[1, "16-384"],
+				"units":12
+			},
+
+			{
+				"category":"electives",
+				"courses":[2, "10-401", "10-601", "11-344", "15-381", "15-424", "15-462", "15-463", "15-491", "15-494", "16-264", "16-362", "16-385", "16-421", "16-423", "16-597", "18-342", "18-349", "18-578", "85-370", "85-395", "85-412", "85-419", "85-426"]
+				"units":18
+			}
+
+		]
+	}
+]}
