@@ -3,6 +3,7 @@
 #semesters
 {
 	border-top: 3px solid #f7cdcd;
+	font-size: 0px;
 }
 
 .semester
@@ -15,7 +16,6 @@
 {
 	height: 80px;
 	text-align: center;
-	font-size: 14px;
 }
 
 /* formatting for each class block */
@@ -28,11 +28,13 @@
 	overflow: hidden;
 	padding: 5px;
 	border: 1px solid black;
+	margin: 0px 15px;
 }
 
 .class > div
 {
 	line-height: 35px;
+	font-size: 14px;
 }
 
 .class > .class_details
