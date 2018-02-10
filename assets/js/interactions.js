@@ -34,6 +34,14 @@ function show_taskbar_menu(id)
 	}
 }
 
+function build()
+{
+	/* change number of years/semesters */
+	var num_years = $("#preferences_container input[name='num_years_button']:checked").val();
+	$(".chng_max_years").html(num_years);
+
+}
+
 $(function(){
 	update_semesters();
 })
