@@ -26,6 +26,10 @@ var course_files = ["classes/fall-2017.json", "classes/spring-2018.json"];
 var major_files = ["major.json"];
 var minor_files = ["minors.json"];
 
+var course_json = [];
+var major_json = [];
+var minor_json = [];
+
 /* update all select inputs with correct semesters */
 function update_semesters()
 {
