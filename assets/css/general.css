@@ -363,6 +363,11 @@ select
 	background-image: url("../../images/white/plus.png");
 }
 
+#taskbar_add
+{
+	background-image: url("../../images/white/plus.png");
+}
+
 #taskbar_menus .taskbar_menu
 {
 	display: none;
