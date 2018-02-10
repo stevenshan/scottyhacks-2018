@@ -15,12 +15,20 @@ var semester_names = ["Freshman Fall",
 					  "Senior Spring",
 					  "Extra Fall",
 					  "Extra Spring"];
+
 var year_names = ["Freshman",
 				  "Sophomore",
 				  "Junior",
 				  "Senior",
 				  "Extra"];
-				
+
+var course_files = ["classes/fall-2017.json", "classes/spring-2018.json"];
+var major_files = ["major.json"];
+var minor_files = ["minors.json"];
+
+var course_json = [];
+var major_json = [];
+var minor_json = [];
 
 /* update all select inputs with correct semesters */
 function update_semesters()
@@ -70,13 +78,14 @@ function build()
 	/* reset starting points for view */
 	starting_year = 0;
 	starting_semester = 0;
-	
+
 	update_graph();
 }
 
-$(function(){
+function setup_graph()
+{
 	/* detect view setting changes */
 	$("#view_bar input[name='view_button']").change(update_graph);
 
 	build();
-});
+}
