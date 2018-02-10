@@ -363,9 +363,9 @@ select
 	background-image: url("../../images/white/plus.png");
 }
 
-#taskbar_add
+#taskbar_delete
 {
-	background-image: url("../../images/white/plus.png");
+	background-image: url("../../images/white/delete.png");
 }
 
 #taskbar_menus .taskbar_menu
