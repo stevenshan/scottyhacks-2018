@@ -58,7 +58,7 @@ body
 /*
  * Main container: everything below header
 */
-#container
+.container
 {
 	position: absolute;
 	top: 70px; /* add room for header above it */
