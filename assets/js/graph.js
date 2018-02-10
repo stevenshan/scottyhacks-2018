@@ -240,9 +240,15 @@ function insert_class(class_id, class_year)
 		text_content = "<div class=\"class\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span>C</span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
 		new_elem = $(text_content);
 
-	$("#semester" + class_year + " > div").append(new_elem);
+	var location = $("#semester" + class_year + " > div");
+	location.append(new_elem);
 
 	draw_prereqs(query, course_details);
+
+	if (!location.length)
+	{
+		new_elem = null;
+	}
 
 	classes[query] = [class_year, new_elem, courses_dict[class_num[0]][query], query];
 	redraw_class_boxes($("#semester" + class_year));
