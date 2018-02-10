@@ -13,9 +13,9 @@
 
 .semester > div
 {
-	height: 70px;
+	height: 80px;
 	text-align: center;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 /* formatting for each class block */
@@ -26,28 +26,40 @@
 	height: 70px;
 	display: inline-block;
 	overflow: hidden;
+	padding: 5px;
+	border: 1px solid black;
 }
 
-.class > .class_1,
-.class > .class_2
+.class > div
 {
-	display: block;
-	white-space:nowrap;
+	line-height: 35px;
 }
 
-.class .class_num
+.class > .class_details
 {
+	white-space: nowrap;
+	border-bottom: 1px solid black;
+}
+
+.class .class_details span
+{
+	display: inline-block;
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+
+.class .class_details .class_id
+{
+	width: 50%;
 	font-weight: bold;
 }
 
-.class .class_num:after
+.class .class_overview span
 {
-	content: " : ";
-	display: inline-block;
-}
-
-.class .class_name:after
-{
-	content: "";
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
 	display: block;
 }
