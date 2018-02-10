@@ -148,9 +148,9 @@ function update_graph()
 	/* re-add classes that were added */
 	var new_classes = classes;
 	classes = {};
-	for (class in new_classes)
+	for (course in new_classes)
 	{
-		insert_class(class, new_classes[0]);
+		insert_class(course, new_classes[0]);
 	}
 }
 
