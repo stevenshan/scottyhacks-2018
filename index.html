@@ -3,6 +3,12 @@
 	<head>
 		<!-- Styling -->
         <link href="assets/css/general.css" type="text/css" rel="stylesheet">
+
+        <!-- Stylesheets for each container window -->
+        <link href="assets/css/preferences.css" type="text/css" rel="stylesheet">
+        <link href="assets/css/display.css" type="text/css" rel="stylesheet">
+
+
         <link href="assets/css/graph.css" type="text/css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
 
@@ -34,9 +40,31 @@
         <!-- area of window below header -->
         <div id="wrapper">
             <div class="container" id="preferences_window">
-                test
+                <div id="preferences_container">
+                    <section>
+                        <section>
+                            <span style="line-height: 51px">Number of Years</span>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="num_years_button" id="num_years_option_1" value="4" checked>
+                                        <label for="num_years_option_1">4</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="num_years_button" id="num_years_option_2" value="2">
+                                        <label for="num_years_option_2">5</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section>
+                            <span>Test</span>
+                            <div>test</div>
+                        </section>
+                    </section>
+                </div>
             </div>
-            
+
             <div class="container" id="display_window">
 
                 <!-- expandable taskbar for tools -->

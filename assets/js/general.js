@@ -5,7 +5,7 @@ $(function(){
 							 "settings": "settings_window"};
 
 	/* set default container */
-	$("#header_option_1").prop("checked", true); // select first container
+	$("#header_option_0").prop("checked", true); // select first container
 
 	/* event for header menu change */
 	$("#header input[name='header_button']").change(function(){

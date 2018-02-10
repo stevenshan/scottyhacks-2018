@@ -1,0 +1,93 @@
+#preferences_container
+{
+	width: 750px;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+	margin-top: 40px;
+}
+
+#preferences_container > section
+{
+	background: #fefefe;
+	-webkit-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	-moz-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#preferences_container > section > section:first-child
+{
+	border-top: 0px;
+}
+
+#preferences_container > section > section
+{
+	border-top: 1px solid #dbd9d9;
+	padding: 15px 0px;
+}
+
+#preferences_container > section > section:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+#preferences_container > section > section > span
+{
+	float: left;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+#preferences_container > section > section > div 
+{
+	float: right;
+	margin-right: 20px;
+}
+
+#preferences_window ul
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+	font-size: 13px;
+	border-radius: 5px;
+	border: 1px solid #f0a000;
+	overflow: hidden;
+}
+
+#preferences_window ul > li
+{
+	display: inline-block;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+#preferences_window ul input
+{
+	visibility: hidden;
+	display: none;
+}
+
+#preferences_window ul label
+{
+	cursor: pointer;
+	display: block;
+	padding: 15px 20px;
+	border-right: 1px solid #f0a000;
+}
+
+#preferences_window ul li:last-child label
+{
+	border: none;
+}
+
+#preferences_window ul input:checked + label
+{
+	background: #f0a000;
+}
