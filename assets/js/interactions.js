@@ -26,6 +26,9 @@ var course_files = ["classes/fall-2017.json", "classes/spring-2018.json"];
 var major_files = ["major.json"];
 var minor_files = ["minors.json"];
 
+/* bucket sorted dictionary based on department number */
+var courses_dict = {};
+
 var course_json = [];
 var major_json = [];
 var minor_json = [];
@@ -88,4 +91,11 @@ function setup_graph()
 	$("#view_bar input[name='view_button']").change(update_graph);
 
 	build();
+}
+
+function add_class()
+{
+	var class_id = $("#add_class_text").val(),
+		class_year = $("#add_class_select").val();
+
 }
