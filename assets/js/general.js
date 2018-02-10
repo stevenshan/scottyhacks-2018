@@ -26,6 +26,8 @@ $(function(){
 	/* trigger change event listener to update container */
 	$("#header input[name='header_button']:checked").change();
 
+	setup_graph();
+
 });
 
 /* make sure class boxes fit into semester row (aka theres not

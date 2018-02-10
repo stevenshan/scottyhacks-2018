@@ -74,9 +74,10 @@ function build()
 	update_graph();
 }
 
-$(function(){
+function setup_graph()
+{
 	/* detect view setting changes */
 	$("#view_bar input[name='view_button']").change(update_graph);
 
 	build();
-});
+}
