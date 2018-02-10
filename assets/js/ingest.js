@@ -29,6 +29,20 @@ function load_json_callback(callback)
 	json_load_count += 1;
 	if (json_load_count == json_load_total)
 	{
+		for (i = 0; i < course_json.length; i++)
+		{
+			for (course in course_json["courses"])
+			{
+				course_json["courses"][course]["semester"] = course_json["semester"];
+				var key = course.split("-");
+				var dept = key[0];
+				if (!(dept in courses_dict))
+				{
+					courses_dict[dept] = {};
+				}
+				courses_dict[dept][course] = course_json["courses"][course];
+			}
+		}
 		callback();
 	}	
 }
