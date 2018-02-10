@@ -96,6 +96,28 @@ function setup_graph()
 function add_class()
 {
 	var class_id = $("#add_class_text").val(),
-		class_year = $("#add_class_select").val();
+		class_year = $("#add_class_select").val(),
+		class_num = [0, 0];
 
+	/* format course as XX-YYY */
+	if (class_id.length == 5)
+	{
+		class_num[0] = class_id.slice(0, 2);
+		class_num[1] = class_id.slice(2);
+	}
+	else
+	{
+		class_num = class_id.split("-");
+	}
+
+	var query = class_num[0] + "-" + class_num[1];
+	if (class_num.length != 2 || 
+		!(class_num[0] in courses_dict) || 
+		!(query in courses_dict[class_num[0]]))
+	{
+		alert("Invalid course number");
+		return;
+	}
+
+	console.log("its all good");
 }
