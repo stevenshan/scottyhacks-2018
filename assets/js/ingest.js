@@ -31,16 +31,16 @@ function load_json_callback(callback)
 	{
 		for (i = 0; i < course_json.length; i++)
 		{
-			for (course in course_json["courses"])
+			for (course in course_json[i]["courses"])
 			{
-				course_json["courses"][course]["semester"] = course_json["semester"];
+				course_json[i]["courses"][course]["semester"] = course_json[i]["semester"];
 				var key = course.split("-");
 				var dept = key[0];
 				if (!(dept in courses_dict))
 				{
 					courses_dict[dept] = {};
 				}
-				courses_dict[dept][course] = course_json["courses"][course];
+				courses_dict[dept][course] = course_json[i]["courses"][course];
 			}
 		}
 		callback();
