@@ -1,6 +1,10 @@
 var semesters = ["Spring", "Fall"];
 var num_years = 4;
 
+var view_bar_setting = 0;
+var starting_year = 0; /* start at freshmen year for 1 year view */
+var starting_semester = 0; /* start at first semester for semester view */
+
 var semester_names = ["Freshman Fall",
 					  "Freshman Spring",
 					  "Sophomore Fall",
@@ -10,7 +14,12 @@ var semester_names = ["Freshman Fall",
 					  "Senior Fall",
 					  "Senior Spring",
 					  "Extra Fall",
-					  "Extra Spring"]
+					  "Extra Spring"];
+var year_names = ["Freshman",
+				  "Sophomore",
+				  "Junior",
+				  "Senior",
+				  "Extra"];
 				
 
 /* update all select inputs with correct semesters */
@@ -58,12 +67,16 @@ function build()
 	semesters = semester_names.slice(0, num_years * 2);
 	update_semesters();
 
-	/* clear semesters */
-	$("#semesters .semester").remove();
-
+	/* reset starting points for view */
+	starting_year = 0;
+	starting_semester = 0;
+	
 	update_graph();
 }
 
 $(function(){
+	/* detect view setting changes */
+	$("#view_bar input[name='view_button']").change(update_graph);
+
 	build();
-})
+});

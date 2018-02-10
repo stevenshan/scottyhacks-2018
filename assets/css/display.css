@@ -59,3 +59,32 @@
 {
 	background: #f0a000;
 }
+
+#view_bar_controls
+{
+	display: inline-block;
+}
+
+#view_bar_text
+{
+	vertical-align: top;
+	line-height: 30px;
+}
+
+#view_bar_next,
+#view_bar_prev
+{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background-image: url("../../images/black/right.png");
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+#view_bar_prev
+{
+	background-image: url("../../images/black/left.png");
+}
