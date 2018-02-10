@@ -17,18 +17,26 @@
 		<div id="header">
             <ul>
                 <li>
+                    <input type="radio" name="header_button" id="header_option_0" value="preferences" checked>
+                    <label for="header_option_0">Preferences</label>
+                </li>
+                <li>
                     <input type="radio" name="header_button" id="header_option_1" value="display" checked>
-                    <label for="header_option_1">Option 1</label>
+                    <label for="header_option_1">Graph</label>
                 </li>
                 <li>
                      <input type="radio" name="header_button" id="header_option_2" value="settings">
-                     <label for="header_option_2">Option 2</label>
+                     <label for="header_option_2">Settings</label>
                 </li>
             </ul>
 		</div>
 
         <!-- area of window below header -->
         <div id="wrapper">
+            <div class="container" id="preferences_window">
+                test
+            </div>
+            
             <div class="container" id="display_window">
 
                 <!-- expandable taskbar for tools -->
@@ -56,13 +64,11 @@
                         </div>
             		</div>
                     <div id="taskbar_menus">
-                        <div class="taskbar_placeholder"></div>
+                        <div class="taskbar_placeholder" style="margin-bottom: 1px"></div>
                         <div class="taskbar_menu" id="add_class_menu">
-                            <div>
-                                <input type="text" id="add_class_text" placeholder="Course Number">
-                                <select class="sel_semesters"></select>
-                                <button></button>
-                            </div>
+                            <input type="text" id="add_class_text" placeholder="Course Number">
+                            <select class="sel_semesters"></select>
+                            <button></button>
                         </div>
                     </div>
                 </div>

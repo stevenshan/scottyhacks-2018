@@ -1,6 +1,7 @@
 /* code to be executed on load */
 $(function(){
-	var container_mapping = {"display": "display_window",
+	var container_mapping = {"preferences": "preferences_window",
+							 "display": "display_window",
 							 "settings": "settings_window"};
 
 	/* set default container */
