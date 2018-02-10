@@ -22,7 +22,7 @@
 /* formatting for each class block */
 .class
 {
-	background: #FEF2F4;
+	background: #FEFEFE;
 	width: 150px;
 	height: 70px;
 	display: inline-block;
@@ -32,6 +32,9 @@
 	margin: 0px 15px;
 	position: relative;
 	z-index: 2;
+	-webkit-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	-moz-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .class > div
