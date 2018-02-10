@@ -1,41 +1,54 @@
 function is_prereq(id, obj)
 /* check if id is a prereq to obj course */
 {
-	prereq = obj["prereqs_obj"]["reqs_list"];
+	prereq = flatten(obj["prereqs_obj"]["reqs_list"]);
 	
 	/* check if id is in prereqs */
-	return is_prereq_helper(id, prereq);
+	for (i = 0; i < prereq.length; i++)
+	{
+		if (id == prereq[i]) return true;
+	}	
+	return false;
 }
 
-function is_prereq_helper(id, prereqs)
+function flatten(arr) {
+	if (arr == null) return [];
+	return arr.reduce(function (flat, toFlatten) {
+		return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+	}, []);
+}
+
+function draw_prereqs_helper(lower_elem, year1, higher_elem, year2)
 {
-	if (typeof prereqs === "string")
+	if (year1 >= year2)
 	{
-		if (id == prereqs) return true;
-		else return false;
+		console.log("invalid");
 	}
-	flag = false;
-	for (i = 0; i < prereqs.length; i++)
+	else
 	{
-		flag |= is_prereq_helper(id, prereqs[i]);	
+		/* valid sequence of prereqs so draw line */
+		connect_courses(lower_elem, higher_elem);
 	}
-	return flag;
 }
 
-function draw_prereqs(query, course_details)
+function draw_prereqs(query, course_details, new_elem, class_year)
 {
 	for (course in classes)
 	{
 		var course_id = classes[course][3];
 		if (is_prereq(course_id, course_details))
+		/* if the one of the class's prereqs was already added */
 		{
-			console.log(course_id, " ==> ", query);
+			draw_prereqs_helper(classes[course][1], classes[course][0],
+					    new_elem, class_year);
 		}
 
 		var details = classes[course][2];
 		if (is_prereq(query, details))
+		/* if the added class was a prereq to a class that was added */
 		{
-			console.log(query, " ==> ", course_id);
+			draw_prereqs_helper(new_elem, class_year,
+					    classes[course][1], classes[course][0]);
 		}
 	}
 }

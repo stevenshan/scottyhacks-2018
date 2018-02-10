@@ -1,16 +1,27 @@
 var node_counter = 0;
 var edges = {};
-var class_to_id = {};
+var id_to_dom = {};
 var classes = {};
 
 function init_canvas()
 {
-	edges = {};
-	class_to_id = {};
+	edges = {};	
 	node_counter = 0;
-	$("#course_canvas").removeAttr().html().removeData();
+	$("#course_canvas").removeAttr().html();
 	var canvas = document.getElementById("course_canvas");
 	paper.setup(canvas);
+}
+
+function redraw_edges()
+{
+	paper.project.clear();
+	var bk_edges = edges;
+	edges = {}
+	
+	for (edge in bk_edges)
+	{
+		draw_edge(edge);
+	}
 }
 
 /* return coordinates of center of element */
@@ -27,7 +38,7 @@ function get_elem_id(elem)
 {
 	if (elem.data("id") === undefined)
 	{
-		class_to_id[$(elem.find(".class_id").get(0)).html()] = node_counter;
+		id_to_dom[node_counter] = elem.attr("id");
 		elem.data("id", node_counter);
 		node_counter++;
 		return node_counter - 1;
@@ -35,9 +46,27 @@ function get_elem_id(elem)
 	return elem.data("id");
 }
 
+function draw_edge(hash)
+{
+	var x = 0, y = 0;
+	while (hash % 2 == 0)
+	{
+		x++;
+		hash /= 2;
+	}
+	while (hash % 3 == 0)
+	{
+		y++;
+		hash /= 3;
+	}
+	connect_courses($("#"+id_to_dom[x]), $("#"+id_to_dom[y]));	
+}
+
 function connect_courses(elem1, elem2)
 {
-	if (elem1 == null || elem2 == null)
+	if (elem1 == null || elem2 == null || 
+	    elem1 == undefined || elem2 == undefined ||
+	    !elem1.length || !elem2.length)
 	{
 		console.log("cannot connect null elements");
 		return;
@@ -61,7 +90,6 @@ function connect_courses(elem1, elem2)
 	var pos1 = get_elem_center(elem1), /* coordinates of elem1 */
 		pos2 = get_elem_center(elem2); /* coordinates of elem1 */
 
-
 	var path = new paper.Path();
 	path.strokeColor = "black";
 	path.strokeWidth = "5";
@@ -76,6 +104,8 @@ function connect_courses(elem1, elem2)
 
 function update_graph()
 {
+	id_to_dom = {};
+
 	/* clear semesters */
 	$("#semesters .semester").remove();
 
@@ -152,6 +182,9 @@ function update_graph()
 	{
 		insert_class(course, new_classes[course][0]);
 	}
+
+	/* reset canvas */
+	init_canvas();
 }
 
 function view_bar_prev()
@@ -237,17 +270,19 @@ function insert_class(class_id, class_year)
 	}
 
 	var course_details = courses_dict[class_num[0]][query],
-		text_content = "<div class=\"class\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span>C</span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
+		text_content = "<div class=\"class\" id=\"c" + query + "\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span></span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
 		new_elem = $(text_content);
 
 	var location = $("#semester" + class_year + " > div");
 	location.append(new_elem);
-
-	draw_prereqs(query, course_details);
-
-	if (!location.length)
+	if (!location.length || location.length == 0)
 	{
 		new_elem = null;
+	}
+	else
+	{
+		redraw_edges();
+		draw_prereqs(query, course_details, new_elem, class_year);
 	}
 
 	classes[query] = [class_year, new_elem, courses_dict[class_num[0]][query], query];
