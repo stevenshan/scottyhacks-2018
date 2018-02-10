@@ -3,39 +3,56 @@
 	<head>
 		<!-- Styling -->
 		<link href="assets/css/general.css" type="text/css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
 
 		<!-- Scripts -->
+        <script src="assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
 		<script src="assets/js/general.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div id="header">
             <ul>
                 <li>
-                    <input type="radio" name="header_button" id="hbutton1">
-                    <label for="hbutton1">Option 1</label>
+                    <input type="radio" name="header_button" id="header_option_1" value="display" checked>
+                    <label for="header_option_1">Option 1</label>
                 </li>
                 <li>
-                     <input type="radio" name="header_button" id="hbutton2">
-                     <label for="hbutton2">Option 2</label>
+                     <input type="radio" name="header_button" id="header_option_2" value="settings">
+                     <label for="header_option_2">Option 2</label>
                 </li>
             </ul>
 		</div>
-        <div id="container">
+
+        <div class="container" id="display_window">
+            <input type="checkbox" name="taskbar_toggle" id="taskbar_toggle">
     		<div id="taskbar">
-                <ul>
-                    <li>
-                        <input type="checkbox" name="taskbar_toggle">
-                        <label for="taskbar_toggle" class="taskbar_button">X</label>
-                    </li>
-                    <li>
-                        T 2
-                    </li>
-                </ul>
+                <div id="taskbar_inner">
+                    <section>
+                        <div class="taskbar_button no_hover">
+                            <label for="taskbar_toggle">
+                                <span id="taskbar_toggle_button"></span>
+                            </label>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="taskbar_button">
+                            <span>Y</span>
+                            <label>Option 1</label>
+                        </div>
+                        <div class="taskbar_button">
+                            <span>Z</span>
+                            <label>Option 2</label>
+                        </div>
+                    </section>
+                </div>
     		</div>
             <div id="inner_container">
                 inner contnet
             </div>
+        </div>
+
+        <div class="container" id="settings_window">
+            settings
         </div>
 	</body>
 </html>

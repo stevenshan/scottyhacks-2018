@@ -2,8 +2,15 @@ body
 {
 	margin: 0px;
 	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	background: #F5F5F5;
 }
 
+a
+{
+	text-decoration: none;
+	color: #000000;
+}
 
 /*
  * Top Header
@@ -56,51 +63,108 @@ body
 /*
  * Main container: everything below header
 */
-#container
+.container
 {
 	position: absolute;
 	top: 70px; /* add room for header above it */
 	bottom: 0px;
 	width: 100%;
 	height: auto;
+	display: none; /* start off all containers invisible */
 }
+
+/* make first container default visible */
+#header + .container {
+	display: block;
+}
+
 
 /*
  * Taskbar for tools on left side
 */
+#taskbar_toggle
+{
+	display: none;
+	visibility: hidden;
+}
+
+#taskbar #taskbar_toggle_button
+{
+	background-image: url("../../images/white/menu.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 30px;
+}
+
+/*
+ * Mechanism for toggling menu wide or narrow view
+*/
+#taskbar_toggle:checked ~ #taskbar
+{
+	width: 250px;
+}
+
+#taskbar_toggle:checked ~ #taskbar #taskbar_toggle_button
+{
+	/* Change menu image to a cross to close */
+	background-image: url("../../images/white/cross.png");
+}
+
 #taskbar
 {
 	position: absolute;
 	left: 0px;
 	width: 60px;
-	background: blue;
+	overflow: hidden;
+	background: #32363a;
 	height: 100%;
+	-webkit-transition: width 0.1s ease-out;
+	-moz-transition: width 0.1s ease-out;
+	-o-transition: width 0.1s ease-out;
+	transition: width 0.1s ease-out;
 }
 
-#taskbar > ul
+#taskbar > #taskbar_inner
 {
-	list-style: none;
-	padding: 0px;
-	margin: 0px;
+	width: 250px;
 }
 
-#taskbar > ul > li
+#taskbar section
+{
+	border-bottom: 1px solid #565656;
+}
+
+#taskbar .taskbar_button
 {
 	display: block;
+	color: #ffffff;
+	height: 60px;
+	line-height: 60px;
 }
 
-#taskbar > ul input
+/* make buttons highlight on hover */
+#taskbar .taskbar_button:hover,
+#taskbar .taskbar_button.no_hover #taskbar_toggle_button:hover
 {
-	visibility: hidden;
-	display: none;
+	background-color: #44494f;
 }
 
-#taskbar > ul label
+/* make items that have no_hover tag not highlight on hover */
+#taskbar .taskbar_button.no_hover
 {
-	
+	background: none;
+}
+
+
+#taskbar .taskbar_button span
+{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
 }
 
 #inner_container
 {
-	background: green;
+	padding-left: 60px;
 }
