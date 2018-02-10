@@ -14,6 +14,17 @@ a
 	color: #000000;
 }
 
+input
+{
+	font-family: 'Lato', sans-serif;
+}
+
+select
+{
+	padding: 9px;
+	margin: 0px;
+}
+
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
    visibility: hidden;
@@ -159,29 +170,39 @@ a
 	visibility: hidden;
 }
 
-#taskbar #taskbar_toggle_button
+#taskbar .taskbar_img_bg
 {
-	background-image: url("../../images/white/menu.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 30px;
 }
 
+#taskbar #taskbar_toggle_button
+{
+	background-image: url("../../images/white/menu.png");
+}
+
 /*
  * Mechanism for toggling menu wide or narrow view
 */
-#taskbar_toggle:checked ~ #taskbar
+#taskbar_toggle:checked ~ #taskbar_outer > #taskbar
 {
 	width: 250px;
 }
 
-#taskbar_toggle:checked ~ #taskbar #taskbar_toggle_button
+#taskbar_toggle:checked ~ #taskbar_outer #taskbar_toggle_button
 {
 	/* Change menu image to a cross to close */
 	background-image: url("../../images/white/cross.png");
 }
 
 #taskbar
+{
+	border-right: 2px solid #565656;
+}
+
+#taskbar,
+#taskbar_menus
 {
 	position: absolute;
 	left: 0px;
@@ -206,12 +227,15 @@ a
 	border-bottom: 1px solid #565656;
 }
 
-#taskbar .taskbar_button
+#taskbar .taskbar_button,
+#taskbar_menus .taskbar_placeholder,
+#taskbar_menus .taskbar_menu
 {
 	display: block;
 	color: #ffffff;
 	height: 60px;
 	line-height: 60px;
+	position: relative;
 }
 
 /* make buttons highlight on hover */
@@ -234,6 +258,87 @@ a
 	width: 60px;
 	height: 60px;
 	cursor: pointer;
+}
+
+#taskbar .taskbar_button span + label
+{
+	line-height: 60px;
+	display: inline-block;
+	float: right;
+	width: 180px;
+	cursor: pointer;
+}
+
+/* menus that go along with taskbar buttons */
+#taskbar_menus
+{
+	background: none;
+	left: 60px;
+	overflow: visible;
+}
+
+#taskbar_menus .taskbar_placeholder
+{
+	width: 0px;
+}
+
+#taskbar_menus .taskbar_menu
+{
+	background: green;
+	display: block;
+	background: #32363a;
+	width: 0pxx;
+	border-left-width: 0px;
+}
+
+#taskbar_menus input[type='text']
+{
+	padding: 8px;
+}
+
+#taskbar_menus button
+{
+	border: none;
+	background-color: transparent;
+	background-image: url("../../images/white/right.png");
+	background-repeat: no-repeat;
+	background-size: 40px;
+	background-position: center;
+	padding: 18px;
+	margin: 0px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+#taskbar_menus button:hover
+{
+	background-position: center left;
+}
+
+#taskbar_add
+{
+	background-image: url("../../images/white/plus.png");
+}
+
+#taskbar_menus .taskbar_menu
+{
+	display: none;
+	overflow: hidden;
+}
+
+#add_class_menu
+{
+	width: 360px;
+}
+
+#add_class_menu *
+{
+	margin-right: 10px;
+}
+
+#add_class_menu select
+{
+	width: 120px;
 }
 
 /*

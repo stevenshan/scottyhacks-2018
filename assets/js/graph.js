@@ -1,4 +1,5 @@
 var project = null;
+var node_counter = 0;
 
 window.onload = function() {
 	/* initialize canvas */
@@ -21,13 +22,24 @@ function get_elem_center(elem)
 	return {x: x + w / 2, y: y + h / 2};
 }
 
+function get_elem_id(elem)
+{
+	if (elem.data("id") === undefined)
+	{
+		elem.data("id", node_counter);
+		node_counter++;
+		return node_counter - 1;
+	}
+	return elem.data("id");
+}
+
 function connect_courses(elem1, elem2)
 {
-	var id1 = elem1.find(".class_id").html(),
-		id2 = elem2.find(".class_id").html();
+	var id1 = get_elem_id(elem1),
+		id2 = get_elem_id(elem2);
 
 	/* make sure edge is not a duplicate */
-	var hash = id1 + ":" + id2;
+	var hash = Math.pow(2, id1) * Math.pow(3, id2);
 	if (hash in edges)
 	{
 		console.log("duplicate edge");
@@ -52,5 +64,5 @@ function connect_courses(elem1, elem2)
 						   pos2.y - pos1.y]));
 
 	/* add edge to list of edges */
-	edges[hash] = true;
+	edges[hash] = path;
 }
