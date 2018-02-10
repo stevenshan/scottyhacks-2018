@@ -1,0 +1,60 @@
+/*
+ * Styling for "display" window
+*/
+#display_window .inner_container
+{
+	margin-left: 60px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#view_bar
+{
+	padding: 11px;
+}
+
+#view_bar > ul
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+	font-size: 13px;
+	border-radius: 5px;
+	border: 1px solid #f0a000;
+	overflow: hidden;
+}
+
+#view_bar > ul > li
+{
+	display: inline-block;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+#view_bar > ul input
+{
+	visibility: hidden;
+	display: none;
+}
+
+#view_bar > ul label
+{
+	cursor: pointer;
+	display: block;
+	padding: 8px 10px;
+	border-right: 1px solid #f0a000;
+	background: #fefefe;
+}
+
+#view_bar > ul li:last-child label
+{
+	border: none;
+}
+
+#view_bar > ul input:checked + label
+{
+	background: #f0a000;
+}
