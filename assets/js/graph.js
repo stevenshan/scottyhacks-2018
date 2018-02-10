@@ -1,13 +1,11 @@
 var project = null;
 var node_counter = 0;
 
-window.onload = function() {
-	/* initialize canvas */
+function init_canvas()
+{
+	$("#course_canvas").removeAttr().html();
 	var canvas = document.getElementById("course_canvas");
 	paper.setup(canvas);
-
-	connect_courses($("#class1"), $("#class2"));
-	connect_courses($("#class1"), $("#class2"));
 }
 
 var edges = {};
@@ -35,6 +33,11 @@ function get_elem_id(elem)
 
 function connect_courses(elem1, elem2)
 {
+	if (elem1 == null || elem2 == null)
+	{
+		console.log("cannot connect null elements");
+		return;
+	}
 	var id1 = get_elem_id(elem1),
 		id2 = get_elem_id(elem2);
 
@@ -65,4 +68,31 @@ function connect_courses(elem1, elem2)
 
 	/* add edge to list of edges */
 	edges[hash] = path;
+}
+
+function update_graph()
+{
+	var view_type = $("#view_bar input[name='view_button']:checked").val();
+	var obj = $("#semesters");
+
+	switch (view_type)
+	{
+		case "view_k_year":
+		{
+			for (i = 0; i < num_years * 2; i++)
+			{
+				var temp = (i + 1) + ": ";
+				if (i < semester_names.length)
+				{
+					temp += semester_names[i];
+				}
+				obj.append("<div class=\"semester\"><div><h1>" +
+						   temp + 
+						   "</h1></div></div>");
+			}
+			break;
+		}
+		case "view_1_year":
+		case "view_semester":
+	}
 }
