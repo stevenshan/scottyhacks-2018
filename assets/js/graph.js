@@ -1,13 +1,14 @@
 var node_counter = 0;
 var edges = {};
 var class_to_id = {};
+var classes = {};
 
 function init_canvas()
 {
 	edges = {};
 	class_to_id = {};
 	node_counter = 0;
-	$("#course_canvas").removeAttr().html();
+	$("#course_canvas").removeAttr().html().removeData();
 	var canvas = document.getElementById("course_canvas");
 	paper.setup(canvas);
 }
@@ -143,6 +144,14 @@ function update_graph()
 			break;
 		}
 	}
+
+	/* re-add classes that were added */
+	var new_classes = classes;
+	classes = {};
+	for (course in new_classes)
+	{
+		insert_class(course, new_classes[course][0]);
+	}
 }
 
 function view_bar_prev()
@@ -195,4 +204,46 @@ function view_bar_next()
 		starting_semester += 1;
 		update_graph();
 	}
+}
+
+function insert_class(class_id, class_year)
+{
+	var class_num = [0, 0];
+	/* format course as XX-YYY */
+	if (class_id.length == 5)
+	{
+		class_num[0] = class_id.slice(0, 2);
+		class_num[1] = class_id.slice(2);
+	}
+	else
+	{
+		class_num = class_id.split("-");
+	}
+
+	var query = class_num[0] + "-" + class_num[1];
+	if (class_num.length != 2 || 
+		!(class_num[0] in courses_dict) || 
+		!(query in courses_dict[class_num[0]]))
+	{
+		alert("Invalid course number");
+		console.log("invalid course number");
+		return;
+	}
+	else if (query in classes)
+	{
+		alert("Class already added");
+		console.log("class already added");
+		return;
+	}
+
+	var course_details = courses_dict[class_num[0]][query],
+		text_content = "<div class=\"class\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span>C</span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
+		new_elem = $(text_content);
+
+	$("#semester" + class_year + " > div").append(new_elem);
+
+	draw_prereqs(query, course_details);
+
+	classes[query] = [class_year, new_elem, courses_dict[class_num[0]][query], query];
+	redraw_class_boxes($("#semester" + class_year));
 }

@@ -99,30 +99,6 @@ function add_class()
 		class_year = $("#add_class_select").val(),
 		class_num = [0, 0];
 
-	/* format course as XX-YYY */
-	if (class_id.length == 5)
-	{
-		class_num[0] = class_id.slice(0, 2);
-		class_num[1] = class_id.slice(2);
-	}
-	else
-	{
-		class_num = class_id.split("-");
-	}
-
-	var query = class_num[0] + "-" + class_num[1];
-	if (class_num.length != 2 || 
-		!(class_num[0] in courses_dict) || 
-		!(query in courses_dict[class_num[0]]))
-	{
-		alert("Invalid course number");
-		return;
-	}
-
-	var course_details = courses_dict[class_num[0]][query],
-		text_content = "<div class=\"class\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span>C</span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
-		new_elem = $(text_content);
-
-	$("#semester" + class_year + " > div").append(new_elem);
+	insert_class(class_id, class_year);
 
 }
