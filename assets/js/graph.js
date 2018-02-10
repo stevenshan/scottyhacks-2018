@@ -242,7 +242,8 @@ function insert_class(class_id, class_year)
 
 	$("#semester" + class_year + " > div").append(new_elem);
 
-	classes[query] = [class_year, new_elem];
+	draw_prereqs(query, course_details);
 
+	classes[query] = [class_year, new_elem, courses_dict[class_num[0]][query], query];
 	redraw_class_boxes($("#semester" + class_year));
 }
