@@ -15,7 +15,7 @@ We used Microsoft Azure to host our website. With ScottyLabs's API, we were able
 
 
 # Challenges we ran into
-Since the CMU audit is being updated next month, it wouldn't be useful for use to scrape data from a website that will be obsolete withint the month. Thus, we went to the School of Computer Science website to look into the requirements for a computer science major. While going through all the requirements we realized that for every requirement there was, there was an exception. This made it extremely difficult to document the major requirements in a organized manner.
+Since the CMU audit is being updated next month, it wouldn't be useful for use to scrape data from a website that will be obsolete within the month. Thus, we went to the School of Computer Science website to look into the requirements for a computer science major. While going through all the requirements we realized that for every requirement there was, there was an exception. This made it extremely difficult to document the major requirements in a organized manner.
 
 # Accomplishments that we're proud of
 We proud of winning a bunch of raffles. 
