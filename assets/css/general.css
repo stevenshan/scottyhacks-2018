@@ -6,6 +6,11 @@ body
 	background: #F5F5F5;
 }
 
+a
+{
+	text-decoration: none;
+	color: #000000;
+}
 
 /*
  * Top Header
@@ -65,7 +70,14 @@ body
 	bottom: 0px;
 	width: 100%;
 	height: auto;
+	display: none; /* start off all containers invisible */
 }
+
+/* make first container default visible */
+#header + .container {
+	display: block;
+}
+
 
 /*
  * Taskbar for tools on left side
@@ -81,7 +93,7 @@ body
 	background-image: url("../../images/white/menu.png");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 40px;
+	background-size: 30px;
 }
 
 /*
