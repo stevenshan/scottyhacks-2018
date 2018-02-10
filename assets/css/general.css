@@ -78,7 +78,7 @@ body
 
 #taskbar #taskbar_toggle_button
 {
-	background-image: url("../../images/ic_view_headline_black_36dp_2x.png");
+	background-image: url("../../images/white/menu.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 40px;
@@ -95,7 +95,7 @@ body
 #taskbar_toggle:checked ~ #taskbar #taskbar_toggle_button
 {
 	/* Change menu image to a cross to close */
-	background-image: url("../../images/ic_close_black_36dp_2x.png");
+	background-image: url("../../images/white/cross.png");
 }
 
 #taskbar
