@@ -15,12 +15,12 @@ var semester_names = ["Freshman Fall",
 					  "Senior Spring",
 					  "Extra Fall",
 					  "Extra Spring"];
+
 var year_names = ["Freshman",
 				  "Sophomore",
 				  "Junior",
 				  "Senior",
 				  "Extra"];
-				
 
 /* update all select inputs with correct semesters */
 function update_semesters()
@@ -70,7 +70,7 @@ function build()
 	/* reset starting points for view */
 	starting_year = 0;
 	starting_semester = 0;
-	
+
 	update_graph();
 }
 
