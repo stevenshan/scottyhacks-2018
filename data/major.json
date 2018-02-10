@@ -103,14 +103,14 @@
       "name": "Computational Biology",
       "department": "Computer Science",
       "school": "SCS",
-      "units": "360",
+      "units": 360,
       "reqs": [
         {
           "category": "computational_biology_core",
           "courses": [0, "02-250", "02-402", "02-510",
                          [1, "02-261", "03-343"],
                          [1, "02-512", "02-530"]],
-          "units": "69"
+          "units": 69
         },
 
         {
@@ -118,27 +118,27 @@
           "courses": [0, "15-128", "15-122", "15-251", "10-401",
                          [1, "99-101", "99-102"],
                          [1, "15-351", "15-451"]],
-          "units": "50"
+          "units": 50
         },
 
         {
           "category": "biological_core",
           "courses": [0, "03-121", "03-220", "03-320",
                          [1, "03-232", "03-231"]],
-          "units": "36"
+          "units": 36
         },
 
         {
           "category": "general_science_core",
           "courses": [0, [1, "09-105", "09-107"],
                          [1, "33-121", "33-141"]],
-          "units": "22"
+          "units": 22
         },
 
         {
           "category": "free_electives",
           "courses": [],
-          "units": "27-54"
+          "units": 27
         },
 
         {
@@ -186,7 +186,7 @@
           "courses":[0, "21-120", "21-122", "15-151",
                         [1, "36-226", "36-326"],
                         [1, "15-359","21-325", "36-217"]],
-          "units":"39"
+          "units":39
         }
       ]
     }
