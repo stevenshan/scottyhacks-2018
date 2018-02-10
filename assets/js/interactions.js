@@ -101,4 +101,5 @@ function add_class()
 
 	insert_class(class_id, class_year);
 
+	update_graph();
 }

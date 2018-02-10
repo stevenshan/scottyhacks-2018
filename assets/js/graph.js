@@ -1,4 +1,3 @@
-var node_counter = 0;
 var edges = {};
 var id_to_dom = {};
 var classes = {};
@@ -6,7 +5,6 @@ var classes = {};
 function init_canvas()
 {
 	edges = {};	
-	node_counter = 0;
 	$("#course_canvas").removeAttr().html();
 	var canvas = document.getElementById("course_canvas");
 	paper.setup(canvas);
@@ -38,10 +36,10 @@ function get_elem_id(elem)
 {
 	if (elem.data("id") === undefined)
 	{
-		id_to_dom[node_counter] = elem.attr("id");
-		elem.data("id", node_counter);
-		node_counter++;
-		return node_counter - 1;
+		var temp = parseInt(elem.attr("id").replace("c", "").replace("-", ""));
+		id_to_dom[temp] = elem.attr("id");
+		elem.data("id", temp);
+		return temp;
 	}
 	return elem.data("id");
 }
@@ -49,16 +47,8 @@ function get_elem_id(elem)
 function draw_edge(hash)
 {
 	var x = 0, y = 0;
-	while (hash % 2 == 0)
-	{
-		x++;
-		hash /= 2;
-	}
-	while (hash % 3 == 0)
-	{
-		y++;
-		hash /= 3;
-	}
+	x = hash % 100000;
+	y = parseInt(hash / 100000);
 	connect_courses($("#"+id_to_dom[x]), $("#"+id_to_dom[y]));	
 }
 
@@ -75,7 +65,7 @@ function connect_courses(elem1, elem2)
 		id2 = get_elem_id(elem2);
 
 	/* make sure edge is not a duplicate */
-	var hash = Math.pow(2, id1) * Math.pow(3, id2);
+	var hash = id1 * 100000 + id2;
 	if (hash in edges)
 	{
 		console.log("duplicate edge");
@@ -185,6 +175,8 @@ function update_graph()
 
 	/* reset canvas */
 	init_canvas();
+
+	redraw_edges();
 }
 
 function view_bar_prev()
