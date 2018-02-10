@@ -1,6 +1,8 @@
 var semesters = ["Spring", "Fall"];
 var num_years = 4;
 
+var delete_mode = true;
+
 var view_bar_setting = 0;
 var starting_year = 0; /* start at freshmen year for 1 year view */
 var starting_semester = 0; /* start at first semester for semester view */
@@ -102,4 +104,14 @@ function add_class()
 	insert_class(class_id, class_year);
 
 	update_graph();
+}
+
+function class_click_action(elem)
+{
+	if (delete_mode)
+	{
+		delete classes[$(elem).attr("id").slice(1)];	
+		update_graph();
+		console.log("test");
+	}
 }

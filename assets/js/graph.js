@@ -66,7 +66,7 @@ function connect_courses(elem1, elem2)
 
 	/* make sure edge is not a duplicate */
 	var hash = id1 * 100000 + id2;
-	if (hash in edges)
+	if (hash in edges || ((id2 * 100000 + id1) in edges))
 	{
 		console.log("duplicate edge");
 		return;
@@ -262,7 +262,7 @@ function insert_class(class_id, class_year)
 	}
 
 	var course_details = courses_dict[class_num[0]][query],
-		text_content = "<div class=\"class\" id=\"c" + query + "\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span></span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
+		text_content = "<div class=\"class\" id=\"c" + query + "\" onclick=\"class_click_action(this)\"><div class=\"class_details clearfix\"><span class=\"class_id\">" + query + "</span><span>" + course_details["units"] + " units</span><span></span></div><div class=\"class_overview\"><span>" + course_details["name"] + "</span></div></div>",
 		new_elem = $(text_content);
 
 	var location = $("#semester" + class_year + " > div");
