@@ -1,5 +1,5 @@
 # CoursePlanner
-Can be found [here](https://me.stevenshan.com/scottyhacks-2018)
+Can be found [here](https://stevenshan.com/tartanhacks-2018)
 
 # Inspiration
 As academics are such an important part of CMU life, being able to plan out which courses to take throughout one’s time here is a useful tool to have. One of of the difficulties with course planning is that there is such a wide variety of interesting courses offered. To help facilitate and simplify the course selection process, we wanted to create a website that clearly shows which courses are major requirements and what taking one course can allow you to take in the future. Mapping out possible paths of courses allows students to envision their future course selections. 
